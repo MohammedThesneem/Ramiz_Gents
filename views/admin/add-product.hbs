@@ -1,0 +1,111 @@
+<div class="main-panel">
+  <div class="content-wrapper">
+    <div class="container tm-mt-big tm-mb-big">
+      <div class="row">
+        <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12 mx-auto">
+          <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
+            <div class="row">
+              <div class="col-12">
+                <h2 class="tm-block-title d-inline-block">Add Product</h2>
+              </div>
+            </div>
+            <div class="row tm-edit-product-row">
+              <form action="/admin/add-product" enctype="multipart/form-data" method="post"
+                class="tm-edit-product-form d-flex">
+                <div class="col-xl-6 col-lg-6 col-md-12">
+
+                  <div class="form-group mb-3">
+                    <label for="name">Brand Name
+                    </label>
+                    <input id="name" name="Brand" type="text" class="form-control validate" required=""
+                      placeholder="Enter Brand Name" />
+                  </div>
+                  <div class="form-group mb-3">
+                    <label for="name">Product Name
+                    </label>
+                    <input id="name" name="Product" type="text" class="form-control validate" required=""
+                      placeholder="Enter Product Name" />
+                  </div>
+
+
+                  <div class="form-group mb-3">
+                    <label for="">Category</label>
+                    <select class="custom-select tm-select-accounts type" name="category" id="slct2">
+                      {{#each category}}
+                      <option value="{{this.category}}">{{this.category}}</option>
+                      {{/each}}
+                    </select>
+                  </div>
+                  <div class="form-group mb-3">
+                    <label for="description">Description</label>
+                    <textarea class="form-control validate" name="Description" rows="3" required=""></textarea>
+                  </div>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
+                  <label for="stock">Stock of Product
+                  </label>
+                  <div class="row">
+                    <div class="form-group mb-3 col-xs-2 col-sm-2">
+                      <input id="stock" name="S" type="number" class="form-control validate" required=""
+                        placeholder="S" />
+                    </div>
+                    <div class="form-group mb-3 col-xs-2 col-sm-2">
+
+                      <input id="stock" name="M" type="number" class="form-control validate" required=""
+                        placeholder="M" />
+                    </div>
+                    <div class="form-group mb-3 col-xs-2 col-sm-2">
+
+                      <input id="stock" name="L" type="number" class="form-control validate" required=""
+                        placeholder="L" />
+                    </div>
+                    <div class="form-group mb-3 col-xs-2 col-sm-2">
+
+                      <input id="stock" name="XL" type="number" class="form-control validate" required=""
+                        placeholder="XL" />
+                    </div>
+                    <div class="form-group mb-3 col-xs-2 col-sm-3">
+
+                      <input id="stock" name="XXL" type="number" class="form-control validate" required=""
+                        placeholder="XXL" />
+                    </div>
+                    <div class="form-group mb-3 col-xs-2 col-sm-6">
+                      <label for="stock">Price
+                      </label>
+
+                      <input id="stock" name="Price" type="number" class="form-control validate" required=""
+                        placeholder="Enter Price" />
+                    </div>
+                  </div>
+                  <div class="row">
+
+                    <div class="custom-file mt-3 mb-3 col-sm-8">
+                      <input id="fileInput" type="file" style="display:none;" name="files" multiple />
+                      <input type="button" class="btn btn-primary btn-block mx-auto" value="UPLOAD PRODUCT IMAGE"
+                        onclick="document.getElementById('fileInput').click();" />
+                    </div>
+
+                    <div class="col-12">
+                      <button type="submit" class="btn btn-primary btn-block text-uppercase ">Add Product Now</button>
+                    </div>
+                  </div>
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+  crossorigin="anonymous"></script>
+<script>
+  const invalidChars = ["-", "e", "+", "E"];
+  $("input[type='number']").on("keydown", function (e) {
+    if
+      (invalidChars.includes(e.key)) { e.preventDefault(); }
+  })
+</script>

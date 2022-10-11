@@ -1,0 +1,118 @@
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="container tm-mt-big tm-mb-big">
+            <div class="row">
+                <form action="/admin/edit-product/{{product._id}}" enctype="multipart/form-data" method="post"
+                    class="tm-edit-product-form d-flex">
+                    <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12 mx-auto">
+                        <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h2 class="tm-block-title d-inline-block">Edit Product</h2>
+                                </div>
+                            </div>
+
+                            <div class="row tm-edit-product-row">
+
+                                <div class="col-xl-6 col-lg-6 col-md-12">
+
+                                    <div class="form-group mb-3">
+                                        <label for="name">Brand Name
+                                        </label>
+                                        <input id="name" name="Brand" type="text" value="{{product.Brand}}"
+                                            class="form-control validate" required="" placeholder="Enter Brand Name" />
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="name">Product Name
+                                        </label>
+                                        <input id="name" name="Product" type="text" value="{{product.Product}}"
+                                            class="form-control validate" required=""
+                                            placeholder="Enter Product Name" />
+                                    </div>
+
+
+                                    <div class="form-group mb-3">
+                                        <label for="">Category</label>
+                                        <select class="custom-select tm-select-accounts type" name="category"
+                                            id="slct2">
+                                            <option value="{{product.category}}" selected disabled>{{product.category}}
+                                            </option>
+                                            {{#each category}}
+                                            <option value="{{this.category}}">
+                                                {{this.category}}</option>
+                                            {{/each}}
+                                        </select>
+                                    </div>
+                                    <div class="form-group mb-3">
+                                        <label for="description">Description</label>
+                                        <textarea class="form-control validate" name="Description" rows="3"
+                                            required="">{{product.Description}}</textarea>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
+                                    <label for="stock">Stock of Product
+                                    </label>
+                                    <div class="row">
+                                        {{#each product.stocks}}
+                                        <div class="form-group mb-3 col-xs-2 col-sm-2">
+                                            <label class="text-uppercase">{{this.size}}</label>
+                                            <input id="stock" name="{{this.size}}" type="number" value="{{this.stock}}"
+                                                class="form-control validate" required="" placeholder="{{this.size}}" />
+                                        </div>
+                                        {{/each}}
+                                        <div class="form-group mb-3 col-xs-2 col-sm-6">
+                                            <label for="stock">Price
+                                            </label>
+
+                                            <input id="stock" name="Price" type="number" value="{{product.Price}}"
+                                                class="form-control validate" required="" placeholder="Enter Price" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+                        <div class="col-12 col-md-6">
+                            {{#each product.images}}
+                            <img src="/upload/{{this.filename}} " id="image{{this._id}}" alt="" class="img-fluid">
+
+                            <div>
+                                <div class="custom-file mt-3 mb-3   ">
+                                    <input onchange="changeImage(event,'{{this._id}}')" id="fileInput{{this._id}}"
+                                        type="file" style="display:none" name="files" multiple />
+                                    <input type="button" class="btn btn-primary btn-block w-100"
+                                        value="UPLOAD PRODUCT IMAGE"
+                                        onclick="document.getElementById('fileInput{{this._id}}').click();">
+
+
+                                </div>
+                                {{/each}}
+                            </div>
+
+                        </div>
+                        <div class="col-8 mt-4 d-flex mx-auto">
+                            <button type="submit" class="btn btn-success btn-block text-uppercase">Add
+                                Product Now</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+    crossorigin="anonymous"></script>
+<script>
+    const invalidChars = ["-", "e", "+", "E"];
+    $("input[type='number']").on("keydown", function (e) {
+        if
+            (invalidChars.includes(e.key)) { e.preventDefault(); }
+    })
+
+    function changeImage(event, imageId) {
+        document.getElementById(`image${imageId}`).src = URL.createObjectURL(event.target.files[0])
+    }
+</script>

@@ -1,0 +1,70 @@
+<div class="main-panel">
+  <div class="content-wrapper">
+    <div class="container tm-mt-big tm-mb-big">
+      <div class="row">
+        <div class="col-xl-9 col-lg-10 col-md-12 col-sm-12 mx-auto">
+          <div class="tm-bg-primary-dark tm-block tm-block-h-auto">
+            <div class="row">
+              <div class="col-12">
+                <h2 class="tm-block-title d-inline-block">Category</h2>
+              </div>
+            </div>
+            <form action="/admin/add-category" method="post" class="tm-edit-product-form"
+            enctype="multipart/form-data">
+              <div class="row tm-edit-product-row">
+
+                <div class="col-xl-6 col-lg-6 col-md-12">
+
+                  <div class="form-group mb-3">
+                    <label for="name">Enter Category
+                    </label>
+                    <input
+                      id="name"
+                      name="category"
+                      type="text"
+                      class="form-control validate"
+                      required=""
+                      placeholder="Category"
+                    />
+                  </div>
+
+                 
+
+                <div class="col-xl-12 col-lg-6 col-md-12 mx-auto mb-4">
+                  <div class="custom-file mt-3 mb-8">
+                    <input
+                      id="fileInput"
+                      type="file"
+                      style="display:none;"
+                      name="files"
+                    />
+                    <input
+                      type="button"
+                      class="btn btn-primary btn-block mx-auto"
+                      value="UPLOAD PRODUCT IMAGE"
+                      onclick="document.getElementById('fileInput').click();"
+                      
+                    />
+                  </div>
+
+                </div>
+
+                <div class="col-12">
+                  <button
+                    type="submit"
+                    class="btn btn-primary btn-block text-uppercase"
+                  >Add Product Now</button>
+                </div>
+
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+

@@ -1,0 +1,59 @@
+
+	<div class='main-panel '>
+		<div class='content-wrapper '>
+			<div class="row">
+
+				<a href="/admin/add-product" class="btn btn-success ml-auto mr-3 font-weight-bold">+Add Product</a>
+
+			</div>
+			
+				<div class='row mt-3' >
+					<div class='col-12 grid-margin'>
+						<div class='card'>
+							<div class='card-body'>
+								<h4 class='card-title'>Products Status</h4>
+								<div class='table-responsive'>
+									<table class='table'>
+										<thead>
+											<tr>
+											
+												<th> No</th>
+												<th> Brand Name</th>
+												<th> Product Name</th>
+												<th> Category </th>
+												<th> Description </th>
+												<th>Price</th>
+												<th> Image </th>
+												
+											</tr>
+										</thead>
+										<tbody> 
+											{{#each products}}
+											<tr>
+												
+												
+												<th scope="row">1</th>
+												<td>{{this.Brand}}</td>
+												<td>{{this.Product}}</td>
+												<td>{{this.category}}</td>
+												<td>{{this.Description}}<br></td>
+												<td>{{this.Price}}</td>
+												<td>
+													{{#each this.images}}
+													
+													<img style="width:50px;height:50px" src="/upload/{{this.filename}}"alt=""> 
+													{{/each}}
+													</td>
+													
+												<td> 
+													<a
+													href="/admin/edit-product/{{this._id}}"	class='btn btn-outline-success'
+													>Edit</a>
+													<a
+													href="/admin/delete-product/{{this._id}}"	class='btn btn-outline-success ml-2' onclick="return confirm('Are you want to delete {{this.Product}} ?')"
+													>Delete</a>
+												</td>
+											</tr>
+											{{/each}}
+	</div>
+	
